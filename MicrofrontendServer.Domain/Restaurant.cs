@@ -12,6 +12,7 @@ namespace MicrofrontendServer.Domain
         public IEnumerable<RestaurantItem> Items { get; set; }
         public string Location { get; set; }
         public string Name { get; set; }
+        public PriceRange PriceRange { get; set; }
         public double Rating { get; set; }
 
         #endregion

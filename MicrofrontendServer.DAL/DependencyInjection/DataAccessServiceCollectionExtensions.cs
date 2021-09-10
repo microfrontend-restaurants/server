@@ -13,6 +13,7 @@ namespace MicrofrontendServer.DAL.DependencyInjection
             services.AddSingleton<IRestaurantRepository, FakeRestaurantRepository>();
             services.AddSingleton<IOrderItemRepository, FakeOrderItemRepository>();
             services.AddSingleton<IOrderRepository, FakeOrderRepository>();
+            services.AddSingleton<ICategoryRepository, FakeCategoryRepository>();
 
             return services;
         }

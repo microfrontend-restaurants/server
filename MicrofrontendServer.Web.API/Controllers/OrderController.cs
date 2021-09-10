@@ -11,8 +11,8 @@ namespace MicrofrontendServer.Web.API.Controllers
     {
         #region Private Fields
 
-        private ILogger<OrderController> logger;
-        private IOrderService orderService;
+        private readonly ILogger<OrderController> logger;
+        private readonly IOrderService orderService;
 
         #endregion
 

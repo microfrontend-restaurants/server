@@ -1,17 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using MicrofrontendServer.Domain;
 
 namespace MicrofrontendServer.Services
 {
     public interface IRestaurantService
     {
-        public IEnumerable<Restaurant> GetRestaurants();
+        #region Public Methods
+
+        public IEnumerable<Category> GetCategories();
 
         public Restaurant GetRestaurantById(long id, bool withItems);
+
         IEnumerable<RestaurantItem> GetRestaurantItems(long[] ids);
+
+        public IEnumerable<Restaurant> SearchRestaurants(string filter, string category, PriceRange? range);
+
+        #endregion
     }
 }

@@ -29,12 +29,12 @@ namespace MicrofrontendServer.Web.API.Controllers
 
         #region Public Methods
 
-        [HttpGet]
-        public ActionResult<IEnumerable<Restaurant>> Get()
+        [HttpGet("Search")]
+        public ActionResult<IEnumerable<Restaurant>> Search(string filter, string category, PriceRange? range)
         {
-            logger.LogInformation("Product.Get() accessed.");
+            logger.LogInformation("Product.Search() accessed.");
 
-            return Ok(restaurantService.GetRestaurants());
+            return Ok(restaurantService.SearchRestaurants(filter, category, range));
         }
 
         [HttpGet("Items")]

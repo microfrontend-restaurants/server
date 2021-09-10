@@ -7,9 +7,8 @@ using MicrofrontendServer.Domain;
 
 namespace MicrofrontendServer.DAL
 {
-    public interface IRestaurantRepository
+    public interface ICategoryRepository
     {
-        public IEnumerable<Restaurant> Search(string filter, string category, PriceRange? range);
-        Restaurant GetById(long id);
+        public IEnumerable<Category> Get();
     }
 }

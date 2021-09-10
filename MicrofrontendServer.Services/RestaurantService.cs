@@ -8,15 +8,20 @@ namespace MicrofrontendServer.Services
     {
         #region Private Fields
 
-        private readonly IRestaurantRepository restaurantRepository;
+        private readonly ICategoryRepository categoryRepository;
         private readonly IRestaurantItemRepository restaurantItemRepository;
+        private readonly IRestaurantRepository restaurantRepository;
 
         #endregion
 
         #region Public Constructors
 
-        public RestaurantService(IRestaurantRepository restaurantRepository, IRestaurantItemRepository restaurantItemRepository)
+        public RestaurantService(
+            IRestaurantRepository restaurantRepository,
+            IRestaurantItemRepository restaurantItemRepository,
+            ICategoryRepository categoryRepository)
         {
+            this.categoryRepository = categoryRepository;
             this.restaurantRepository = restaurantRepository;
             this.restaurantItemRepository = restaurantItemRepository;
         }
@@ -25,11 +30,16 @@ namespace MicrofrontendServer.Services
 
         #region Public Methods
 
+        public IEnumerable<Category> GetCategories()
+        {
+            return categoryRepository.Get();
+        }
+
         public Restaurant GetRestaurantById(long id, bool withItems)
         {
             var restaurant = restaurantRepository.GetById(id);
 
-            if(withItems)
+            if (withItems)
             {
                 restaurant.Items = restaurantItemRepository.GetByRestaurantId(id);
             }
@@ -42,9 +52,9 @@ namespace MicrofrontendServer.Services
             return restaurantItemRepository.GetByIds(ids);
         }
 
-        public IEnumerable<Restaurant> GetRestaurants()
+        public IEnumerable<Restaurant> SearchRestaurants(string filter, string category, PriceRange? range)
         {
-            return restaurantRepository.GetAll();
+            return restaurantRepository.Search(filter, category, range);
         }
 
         #endregion
