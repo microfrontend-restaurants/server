@@ -9,6 +9,8 @@ namespace MicrofrontendServer.DAL
 
         public Order Get(long id);
 
+        public IEnumerable<Order> Get();
+
         public long Insert(Order order);
 
         public bool Remove(long id);

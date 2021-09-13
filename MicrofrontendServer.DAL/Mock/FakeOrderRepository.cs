@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MicrofrontendServer.Domain;
 
@@ -8,7 +9,7 @@ namespace MicrofrontendServer.DAL.Mock
     {
         #region Private Fields
 
-        private ICollection<Order> orders;
+        private readonly ICollection<Order> orders;
 
         #endregion
 
@@ -16,7 +17,10 @@ namespace MicrofrontendServer.DAL.Mock
 
         public FakeOrderRepository()
         {
-            orders = new List<Order>();
+            orders = new List<Order>
+            {
+                new Order { Id = 1, CreatedDate = DateTime.Today.AddDays(-5) }
+            };
         }
 
         #endregion
@@ -26,6 +30,11 @@ namespace MicrofrontendServer.DAL.Mock
         public Order Get(long id)
         {
             return orders.SingleOrDefault(o => o.Id == id);
+        }
+
+        public IEnumerable<Order> Get()
+        {
+            return orders.OrderByDescending(o => o.CreatedDate);
         }
 
         public long Insert(Order order)

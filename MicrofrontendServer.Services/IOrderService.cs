@@ -1,4 +1,5 @@
-﻿using MicrofrontendServer.Domain;
+﻿using System.Collections.Generic;
+using MicrofrontendServer.Domain;
 
 namespace MicrofrontendServer.Services
 {
@@ -7,6 +8,8 @@ namespace MicrofrontendServer.Services
         #region Public Methods
 
         public Order GetOrder(long id);
+
+        IEnumerable<Order> GetOrders();
 
         public long InsertOrder(Order order);
 

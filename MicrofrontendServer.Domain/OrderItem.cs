@@ -6,6 +6,8 @@
 
         public double Amount { get; set; }
         public long Id { get; set; }
+
+        public long ItemId { get; set; }
         public RestaurantItem Item { get; set; }
         public long ParentId { get; set; }
 

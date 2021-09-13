@@ -16,7 +16,11 @@ namespace MicrofrontendServer.DAL.Mock
 
         public FakeOrderItemRepository()
         {
-            items = new List<OrderItem>();
+            items = new List<OrderItem>
+            {
+                new OrderItem { Id = 1, Amount = 5, ParentId = 1, ItemId = 2 },
+                new OrderItem { Id = 2, Amount = 2, ParentId = 1, ItemId = 3 }
+            };
         }
 
         #endregion
@@ -30,6 +34,7 @@ namespace MicrofrontendServer.DAL.Mock
 
         public long Insert(OrderItem item)
         {
+            item.ItemId = item.Item.Id;
             item.Id = (items.Max(o => (long?)o.Id) ?? 0) + 1;
             items.Add(item);
 

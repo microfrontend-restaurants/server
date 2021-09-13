@@ -1,4 +1,6 @@
-﻿using MicrofrontendServer.Domain;
+﻿using System.Collections;
+using System.Collections.Generic;
+using MicrofrontendServer.Domain;
 using MicrofrontendServer.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -41,6 +43,12 @@ namespace MicrofrontendServer.Web.API.Controllers
             }
 
             return Ok();
+        }
+
+        [HttpGet]
+        public ActionResult<IEnumerable<Order>> Get()
+        {
+            return Ok(orderService.GetOrders());
         }
 
         [HttpPost]

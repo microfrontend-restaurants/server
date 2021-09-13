@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MicrofrontendServer.Domain
 {
@@ -6,6 +7,7 @@ namespace MicrofrontendServer.Domain
     {
         #region Public Properties
 
+        public DateTime CreatedDate { get; set; }
         public long Id { get; set; }
         public IEnumerable<OrderItem> Items { get; set; }
         public OrderStatus Status { get; set; }
