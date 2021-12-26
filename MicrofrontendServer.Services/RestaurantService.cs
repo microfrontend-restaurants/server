@@ -47,11 +47,6 @@ namespace MicrofrontendServer.Services
             return restaurant;
         }
 
-        public IEnumerable<RestaurantItem> GetRestaurantItems(long[] ids)
-        {
-            return restaurantItemRepository.GetByIds(ids);
-        }
-
         public IEnumerable<Restaurant> SearchRestaurants(string filter, string category, PriceRange? range)
         {
             return restaurantRepository.Search(filter, category, range);

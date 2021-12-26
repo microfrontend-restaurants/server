@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using MicrofrontendServer.Domain;
+﻿using MicrofrontendServer.Domain;
+using System.Collections.Generic;
 
 namespace MicrofrontendServer.Services
 {
@@ -10,6 +10,8 @@ namespace MicrofrontendServer.Services
         public Order GetOrder(long id);
 
         IEnumerable<Order> GetOrders();
+
+        IEnumerable<RestaurantItem> GetRestaurantItems(long[] ids);
 
         public long InsertOrder(Order order);
 

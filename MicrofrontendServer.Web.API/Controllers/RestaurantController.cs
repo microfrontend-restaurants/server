@@ -37,14 +37,6 @@ namespace MicrofrontendServer.Web.API.Controllers
             return Ok(restaurantService.SearchRestaurants(filter, category, range));
         }
 
-        [HttpGet("Items")]
-        public ActionResult<IEnumerable<Restaurant>> GetItems([FromQuery] long[] ids)
-        {
-            logger.LogInformation("Product.GetItems() accessed.");
-
-            return Ok(restaurantService.GetRestaurantItems(ids));
-        }
-
         [HttpGet("{id}")]
         public ActionResult<Restaurant> Get(long id, bool withItems = false)
         {

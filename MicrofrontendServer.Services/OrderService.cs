@@ -109,6 +109,11 @@ namespace MicrofrontendServer.Services
             return orderRepository.Update(order);
         }
 
+        public IEnumerable<RestaurantItem> GetRestaurantItems(long[] ids)
+        {
+            return restaurantItemRepository.GetByIds(ids);
+        }
+
         #endregion
     }
 }

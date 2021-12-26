@@ -1,7 +1,7 @@
 ﻿version: '3.4'
 
 services:
-  microfrontendserverwebapi:
+  api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:

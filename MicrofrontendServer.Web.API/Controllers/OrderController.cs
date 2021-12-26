@@ -39,7 +39,7 @@ namespace MicrofrontendServer.Web.API.Controllers
 
             if (order == null)
             {
-                return NotFound();
+                return NotFound("Order could not be found.");
             }
 
             return Ok();
@@ -66,6 +66,14 @@ namespace MicrofrontendServer.Web.API.Controllers
             return Ok();
         }
 
+        [HttpGet("Items")]
+        public ActionResult<IEnumerable<Restaurant>> GetItems([FromQuery] long[] ids)
+        {
+            logger.LogInformation($"Order.Get(ids={ids}) accessed.");
+
+            return Ok(orderService.GetRestaurantItems(ids));
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Remove(long id)
         {
@@ -73,7 +81,7 @@ namespace MicrofrontendServer.Web.API.Controllers
 
             if (!orderService.RemoveOrder(id))
             {
-                return BadRequest("Order could not be removed.");
+                return Conflict("Order could not be removed.");
             }
             return Ok();
         }
@@ -85,7 +93,7 @@ namespace MicrofrontendServer.Web.API.Controllers
 
             if (!orderService.UpdateOrder(order))
             {
-                return BadRequest("Order could not be updated.");
+                return Conflict("Order could not be updated.");
             }
 
             return Ok();

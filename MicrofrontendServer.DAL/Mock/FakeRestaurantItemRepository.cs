@@ -15,15 +15,15 @@ namespace MicrofrontendServer.DAL.Mock
         {
             items = new List<RestaurantItem>()
             {
-                new RestaurantItem { Id = 1, Name = "Item 1", ParentId = 1, Price = 9.90M, AllergyInformation = "A,C" },
-                new RestaurantItem { Id = 2, Name = "Item 2", ParentId = 1, Price = 4.50M, AllergyInformation = "A,C" },
-                new RestaurantItem { Id = 3, Name = "Item 3", ParentId = 1, Price = 12.10M, AllergyInformation = "A,C" },
-                new RestaurantItem { Id = 4, Name = "Item 1", ParentId = 2, Price = 9.90M, AllergyInformation = "A,C" },
-                new RestaurantItem { Id = 5, Name = "Item 2", ParentId = 2, Price = 4.50M, AllergyInformation = "A,C" },
-                new RestaurantItem { Id = 6, Name = "Item 3", ParentId = 2, Price = 12.10M, AllergyInformation = "A,C" },
-                new RestaurantItem { Id = 7, Name = "Item 1", ParentId = 3, Price = 9.90M, AllergyInformation = "A,C" },
-                new RestaurantItem { Id = 8, Name = "Item 2", ParentId = 3, Price = 4.50M, AllergyInformation = "A,C" },
-                new RestaurantItem { Id = 9, Name = "Item 3", ParentId = 3, Price = 12.10M, AllergyInformation = "A,C" }
+                new RestaurantItem { Id = 1, Name = "Schweinefleisch Süß-Sauer", ParentId = 1, Price = 9.90M, AllergyInformation = "A,C" },
+                new RestaurantItem { Id = 2, Name = "Gebratene Nudeln mit Gemüse", ParentId = 1, Price = 4.50M, AllergyInformation = "A,C" },
+                new RestaurantItem { Id = 3, Name = "Acht Schätze", ParentId = 1, Price = 12.10M, AllergyInformation = "A,C" },
+                new RestaurantItem { Id = 4, Name = "Schnitzel mit Reis und Kartoffeln", ParentId = 2, Price = 9.90M, AllergyInformation = "A,C" },
+                new RestaurantItem { Id = 5, Name = "Bowl mit Lachs und Gemüse", ParentId = 2, Price = 4.50M, AllergyInformation = "A,C" },
+                new RestaurantItem { Id = 6, Name = "Burger mit Rindfleisch und Süßkartoffelpommes", ParentId = 2, Price = 12.10M, AllergyInformation = "A,C" },
+                new RestaurantItem { Id = 7, Name = "Miso Ramen mit Rindfleisch", ParentId = 3, Price = 9.90M, AllergyInformation = "A,C" },
+                new RestaurantItem { Id = 8, Name = "Tonkotsu Ramen Vegetarisch", ParentId = 3, Price = 4.50M, AllergyInformation = "A,C" },
+                new RestaurantItem { Id = 9, Name = "Shio Ramen", ParentId = 3, Price = 12.10M, AllergyInformation = "A,C" }
             };
         }
 
