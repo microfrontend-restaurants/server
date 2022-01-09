@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MicrofrontendServer.Domain\MicrofrontendServer.Domain.csproj" />
-    <ProjectReference Include="..\MicrofrontendServier.Resources\MicrofrontendServier.Resources.csproj" />
+    <ProjectReference Include="..\MicrofrontendService.Resources\MicrofrontendService.Resources.csproj" />
   </ItemGroup>
 
 </Project>

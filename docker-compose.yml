@@ -1,12 +1,17 @@
-﻿version: '3.4'
-
-services:
-  api:
+﻿services:
+  discover-service:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "5000:80"
-    image: ${DOCKER_REGISTRY-}microfrontendserverwebapi
     build:
       context: .
-      dockerfile: MicrofrontendServer.Web.API/Dockerfile
+      dockerfile: MicrofrontendServer.Web.Discover/Dockerfile
+  order-service:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5001:80"
+    build:
+      context: .
+      dockerfile: MicrofrontendServer.Web.Order/Dockerfile

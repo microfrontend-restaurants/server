@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using MicrofrontendServer.Domain;
+﻿using MicrofrontendServer.Domain;
 using MicrofrontendServer.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 
 namespace MicrofrontendServer.Web.API.Controllers
 {
@@ -31,7 +30,7 @@ namespace MicrofrontendServer.Web.API.Controllers
         #region Public Methods
 
         [HttpGet("{id}")]
-        public ActionResult<Order> Get(long id)
+        public ActionResult<Domain.Order> Get(long id)
         {
             logger.LogInformation($"Order.Get({id}) accessed.");
 
@@ -46,13 +45,13 @@ namespace MicrofrontendServer.Web.API.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Order>> Get()
+        public ActionResult<IEnumerable<Domain.Order>> Get()
         {
             return Ok(orderService.GetOrders());
         }
 
         [HttpPost]
-        public ActionResult<long> Insert([FromBody] Order order)
+        public ActionResult<long> Insert([FromBody] Domain.Order order)
         {
             logger.LogInformation($"Order.Insert({order}) accessed.");
 
@@ -87,7 +86,7 @@ namespace MicrofrontendServer.Web.API.Controllers
         }
 
         [HttpPut]
-        public IActionResult Update([FromBody] Order order)
+        public IActionResult Update([FromBody] Domain.Order order)
         {
             logger.LogInformation($"Order.Update({order}) accessed.");
 

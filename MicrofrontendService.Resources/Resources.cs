@@ -1,4 +1,6 @@
-﻿namespace MicrofrontendServier.Resources
+﻿using MicrofrontendService.Resources;
+
+namespace MicrofrontendServier.Resources
 {
     public static class Resources
     {
