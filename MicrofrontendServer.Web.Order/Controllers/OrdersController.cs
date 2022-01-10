@@ -8,18 +8,18 @@ namespace MicrofrontendServer.Web.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class OrderController : ControllerBase
+    public class OrdersController : ControllerBase
     {
         #region Private Fields
 
-        private readonly ILogger<OrderController> logger;
+        private readonly ILogger<OrdersController> logger;
         private readonly IOrderService orderService;
 
         #endregion
 
         #region Public Constructors
 
-        public OrderController(ILogger<OrderController> logger, IOrderService orderService)
+        public OrdersController(ILogger<OrdersController> logger, IOrderService orderService)
         {
             this.logger = logger;
             this.orderService = orderService;
@@ -32,7 +32,7 @@ namespace MicrofrontendServer.Web.API.Controllers
         [HttpGet("{id}")]
         public ActionResult<Domain.Order> Get(long id)
         {
-            logger.LogInformation($"Order.Get({id}) accessed.");
+            logger.LogInformation($"Orders.Get({id}) accessed.");
 
             var order = orderService.GetOrder(id);
 
@@ -53,7 +53,7 @@ namespace MicrofrontendServer.Web.API.Controllers
         [HttpPost]
         public ActionResult<long> Insert([FromBody] Domain.Order order)
         {
-            logger.LogInformation($"Order.Insert({order}) accessed.");
+            logger.LogInformation($"Orders.Insert({order}) accessed.");
 
             var id = orderService.InsertOrder(order);
 
@@ -68,7 +68,7 @@ namespace MicrofrontendServer.Web.API.Controllers
         [HttpGet("Items")]
         public ActionResult<IEnumerable<Restaurant>> GetItems([FromQuery] long[] ids)
         {
-            logger.LogInformation($"Order.Get(ids={ids}) accessed.");
+            logger.LogInformation($"Orders.Get(ids={ids}) accessed.");
 
             return Ok(orderService.GetRestaurantItems(ids));
         }
@@ -76,7 +76,7 @@ namespace MicrofrontendServer.Web.API.Controllers
         [HttpDelete("{id}")]
         public IActionResult Remove(long id)
         {
-            logger.LogInformation($"Order.Remove({id}) accessed.");
+            logger.LogInformation($"Orders.Remove({id}) accessed.");
 
             if (!orderService.RemoveOrder(id))
             {
@@ -88,7 +88,7 @@ namespace MicrofrontendServer.Web.API.Controllers
         [HttpPut]
         public IActionResult Update([FromBody] Domain.Order order)
         {
-            logger.LogInformation($"Order.Update({order}) accessed.");
+            logger.LogInformation($"Orders.Update({order}) accessed.");
 
             if (!orderService.UpdateOrder(order))
             {

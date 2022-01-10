@@ -7,18 +7,18 @@ namespace MicrofrontendServer.Web.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CategoryController : ControllerBase
+    public class CategoriesController : ControllerBase
     {
         #region Private Fields
 
-        private readonly ILogger<CategoryController> logger;
+        private readonly ILogger<CategoriesController> logger;
         private readonly IRestaurantService restaurantService;
 
         #endregion
 
         #region Public Constructors
 
-        public CategoryController(ILogger<CategoryController> logger, IRestaurantService restaurantService)
+        public CategoriesController(ILogger<CategoriesController> logger, IRestaurantService restaurantService)
         {
             this.logger = logger;
             this.restaurantService = restaurantService;
@@ -31,7 +31,7 @@ namespace MicrofrontendServer.Web.API.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            logger.LogInformation("Product.Get() accessed.");
+            logger.LogInformation("Categories.Get() accessed.");
 
             return Ok(restaurantService.GetCategories());
         }

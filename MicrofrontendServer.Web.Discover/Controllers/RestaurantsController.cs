@@ -8,18 +8,18 @@ namespace MicrofrontendServer.Web.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class RestaurantController : ControllerBase
+    public class RestaurantsController : ControllerBase
     {
         #region Private Fields
 
-        private readonly ILogger<RestaurantController> logger;
+        private readonly ILogger<RestaurantsController> logger;
         private readonly IRestaurantService restaurantService;
 
         #endregion
 
         #region Public Constructors
 
-        public RestaurantController(ILogger<RestaurantController> logger, IRestaurantService restaurantService)
+        public RestaurantsController(ILogger<RestaurantsController> logger, IRestaurantService restaurantService)
         {
             this.logger = logger;
             this.restaurantService = restaurantService;
@@ -32,7 +32,7 @@ namespace MicrofrontendServer.Web.API.Controllers
         [HttpGet("Search")]
         public ActionResult<IEnumerable<Restaurant>> Search(string filter, string category, PriceRange? range)
         {
-            logger.LogInformation("Product.Search() accessed.");
+            logger.LogInformation("Restaurants.Search() accessed.");
 
             return Ok(restaurantService.SearchRestaurants(filter, category, range));
         }
@@ -40,7 +40,7 @@ namespace MicrofrontendServer.Web.API.Controllers
         [HttpGet("{id}")]
         public ActionResult<Restaurant> Get(long id, bool withItems = false)
         {
-            logger.LogInformation($"Product.Get(id={id}, withItems={withItems}) accessed.");
+            logger.LogInformation($"Restaurants.Get(id={id}, withItems={withItems}) accessed.");
 
             var restaurant = restaurantService.GetRestaurantById(id, withItems);
 
